@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRANSCRIPT - Pursuit of Privacy AMA | Salvium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/design-system.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .blog-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 30, 0.5);
+        }
+
+        .blog-title-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-title-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-content h2, .blog-content h3, .blog-content h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-content a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .question {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-top: 2rem;
+        }
+
+        .answer {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                height: 40vh;
+            }
+
+            .blog-title-container h1 {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Blog Header -->
+    <header class="blog-header" style="background-image: url('../images/newimages/Blog Page/Blog Thumbs - No Text/Blog - No Text.jpg');">
+        <div class="blog-title-container">
+            <h1>TRANSCRIPT - Pursuit of Privacy AMA</h1>
+            <div class="blog-meta">
+                <span>January 6, 2024</span>
+                <span>10 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="blog-content">
+        <p>Welcome to the transcript of our recent AMA session focused on privacy in cryptocurrency. Our team addressed various questions about Salvium's approach to privacy, compliance, and the future of private transactions.</p>
+
+        <div class="question">Q: What makes Salvium different from other privacy coins?</div>
+        <div class="answer">
+            <p>Salvium combines the best of both worlds - strong privacy features and regulatory compliance. Unlike traditional privacy coins, we've built in mechanisms that allow for selective transparency when needed, while maintaining core privacy by default. Our Protocol_tx innovation enables features like compliant refunds without compromising transaction privacy.</p>
+        </div>
+
+        <div class="question">Q: How does Salvium maintain privacy while being compliant?</div>
+        <div class="answer">
+            <p>We've developed a unique approach where privacy is preserved at the protocol level, but users have the option to provide verifiable proof of their transactions when required. This is achieved through our innovative return functionality and expanded transaction types, which have been validated through our recent audit by Cypher Stack.</p>
+        </div>
+
+        <div class="question">Q: Can you explain how staking works with privacy features?</div>
+        <div class="answer">
+            <p>Our staking mechanism is designed to work seamlessly with our privacy features. When you stake SAL, the transaction is private, but the staking rewards are distributed through verifiable Protocol_tx transactions. This ensures both privacy for users and transparency for the network's economic mechanisms.</p>
+        </div>
+
+        <div class="question">Q: What are your plans for future privacy enhancements?</div>
+        <div class="answer">
+            <p>We're constantly working on improving our privacy features while maintaining compliance. Future updates will include:</p>
+            <ul>
+                <li>Enhanced transaction privacy through improved ring signatures</li>
+                <li>More efficient zero-knowledge proofs</li>
+                <li>Additional privacy-preserving smart contract capabilities</li>
+                <li>Improved subaddress privacy features</li>
+            </ul>
+        </div>
+
+        <div class="question">Q: How does Salvium handle regulatory requirements?</div>
+        <div class="answer">
+            <p>Salvium is designed with regulatory compliance in mind. We achieve this through:</p>
+            <ul>
+                <li>Optional transaction proof generation</li>
+                <li>Compliant refund mechanisms</li>
+                <li>Transparent treasury management</li>
+                <li>Auditable protocol-level transactions</li>
+            </ul>
+            <p>This approach allows us to maintain strong privacy while providing necessary compliance tools for businesses and users who need them.</p>
+        </div>
+
+        <div class="question">Q: What's your vision for privacy in DeFi?</div>
+        <div class="answer">
+            <p>We believe privacy is essential for DeFi's future. Our vision includes:</p>
+            <ul>
+                <li>Private smart contracts for DeFi applications</li>
+                <li>Confidential transaction amounts in DeFi operations</li>
+                <li>Privacy-preserving cross-chain bridges</li>
+                <li>Compliant privacy-focused DEX integration</li>
+            </ul>
+        </div>
+
+        <div class="question">Q: How secure is Salvium's privacy implementation?</div>
+        <div class="answer">
+            <p>Security is paramount in our privacy implementation. Our recent audit by Cypher Stack confirmed the robustness of our approach. We use:</p>
+            <ul>
+                <li>Battle-tested cryptographic primitives</li>
+                <li>Regular security audits</li>
+                <li>Peer-reviewed privacy enhancements</li>
+                <li>Continuous monitoring and updates</li>
+            </ul>
+        </div>
+
+        <div class="question">Q: What role does community feedback play in privacy development?</div>
+        <div class="answer">
+            <p>Community feedback is crucial to our development process. We regularly:</p>
+            <ul>
+                <li>Conduct community surveys on privacy features</li>
+                <li>Host technical discussions in our Discord</li>
+                <li>Incorporate user suggestions in updates</li>
+                <li>Share development progress transparently</li>
+            </ul>
+        </div>
+
+        <p class="mt-8">Thank you to everyone who participated in our AMA session. Your questions help us better understand community needs and concerns regarding privacy in cryptocurrency. Stay tuned for more updates and future AMA sessions!</p>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+    </script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/blog-navigation.js"></script>
+</body>
+</html>

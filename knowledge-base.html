@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#0B272C">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#0B272C">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            /* Primary Colors */
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+
+            /* Background Colors */
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: #1e1e1e;
+            --color-bg-header: #1e1e1e;
+
+            /* Text Colors */
+            --color-text: #e0e0e0;
+            --color-text-light: #e0e0e0;
+            --color-text-lighter: #b0b0b0;
+
+            /* Accent Colors */
+            --color-accent: #4db6ac;
+            --color-accent-light: #80cbc4;
+
+            /* Border Colors */
+            --color-border: rgba(0, 191, 165, 0.15);
+            --color-border-light: rgba(0, 191, 165, 0.05);
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .kb-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .kb-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .kb-card .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .kb-card .card-content {
+            padding: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .kb-card .card-tag {
+            background: rgba(0, 191, 165, 0.1);
+            color: #00bfa5;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+
+        .kb-card .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .kb-card a {
+            font-family: 'Inter', Arial, sans-serif;
+            color: #00bfa5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .kb-card a:hover {
+            color: #00967d;
+        }
+
+        @media (max-width: 768px) {
+            .card-image {
+                height: 200px;
+            }
+            .card-content {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .kb-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .kb-card {
+                padding: 1.5rem;
+            }
+            
+            .kb-header {
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+            
+            .kb-search {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+    <main class="relative z-10 mt-8">
+        <!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden pt-16">
+            <div class="absolute inset-0">
+                <img src="images/newimages/KB.png" alt="Knowledge Base Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Knowledge <span class="gradient-text">Base</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Everything you need to know about Salvium
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 -mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 mb-24">
+                <!-- Technical -->
+                <div class="kb-card" data-aos="fade-up">
+                    <img src="images/newimages/Blog Page/Blog Thumbs - No Text/Blog - No Text.jpg" alt="The Protocol" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">Technical</span>
+                        <h2 class="card-title">THE PROTOCOL</h2>
+                        <ul class="space-y-2 mb-4">
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/project/what-is-salvium/" target="_blank" class="text-white hover:text-[#40E0D0]">Overview</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/protocol/consensus/" target="_blank" class="text-white hover:text-[#40E0D0]">Consensus</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/protocol/privacy/" target="_blank" class="text-white hover:text-[#40E0D0]">Privacy</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/tools/explorer/" target="_blank" class="text-white hover:text-[#40E0D0]">Explorer</a></li>
+                        </ul>
+                        <a href="https://siko-ctrl.github.io/docs-salvium/" target="_blank" class="inline-flex items-center text-primary hover:text-primary-dark">
+                            View All Protocol Docs
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project -->
+                <div class="kb-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/newimages/Blog Page/Blog Thumbs - No Text/Treasury Report No Text.jpg" alt="Project Documentation" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">Project</span>
+                        <h2 class="card-title">THE PROJECT</h2>
+                        <ul class="space-y-2 mb-4">
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/project/tokenomics/" target="_blank" class="text-white hover:text-[#40E0D0]">Tokenomics</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/project/governance/" target="_blank" class="text-white hover:text-[#40E0D0]">Governance</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/project/audits/" target="_blank" class="text-white hover:text-[#40E0D0]">Audits</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/project/roadmap/" target="_blank" class="text-white hover:text-[#40E0D0]">Roadmap</a></li>
+                        </ul>
+                        <a href="https://siko-ctrl.github.io/docs-salvium/project/" target="_blank" class="inline-flex items-center text-primary hover:text-primary-dark">
+                            View All Project Docs
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wallets -->
+                <div class="kb-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/newimages/Blog Page/Blog Thumbs - No Text/AMA No Text.jpg" alt="Wallets" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">Wallets</span>
+                        <h2 class="card-title">WALLETS</h2>
+                        <ul class="space-y-2 mb-4">
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/tools/wallets/" target="_blank" class="text-white hover:text-[#40E0D0]">Mobile Wallet</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/tools/wallets/" target="_blank" class="text-white hover:text-[#40E0D0]">Desktop Wallet</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/tools/wallets/" target="_blank" class="text-white hover:text-[#40E0D0]">Web Wallet</a></li>
+                            <li><a href="https://siko-ctrl.github.io/docs-salvium/tools/wallets/" target="_blank" class="text-white hover:text-[#40E0D0]">Hardware Wallet</a></li>
+                        </ul>
+                        <a href="https://siko-ctrl.github.io/docs-salvium/tools/wallets/" target="_blank" class="inline-flex items-center text-primary hover:text-primary-dark">
+                            View All Wallet Docs
+                            <i class="fas fa-angle-down ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- CTA Section -->
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0">
+        <img src="./images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+            Ready to Take the <span class="gradient-text">Pill</span>?
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Start your journey with Salvium today and be part of the next generation of Private DeFi.
+        </p>
+        <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+            Get Started Now
+        </button>
+    </div>
+</section>
+    <div id="footer" class="mt-0"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js?v=1"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

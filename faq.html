@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Salvium</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#00bfa5">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#1e1e1e">
+    
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        .faq-card {
+            background: linear-gradient(145deg, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .faq-question,
+        .faq-question-text {
+            cursor: pointer;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .faq-question-text {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-question i {
+            color: var(--color-primary);
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 1rem;
+            padding-left: 2.2rem;
+            color: var(--color-text);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .faq-card.active .faq-answer {
+            display: block;
+        }
+
+        .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-card.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .faq-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .faq-question {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            background-color: rgba(0, 191, 165, 0.1);
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Global title styles */
+        h1, h2, h3, .title-font {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="images/newimages/Page Headers/FAQ Header.jpg" alt="FAQ Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Salvium <span class="gradient-text">FAQ</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Find answers to commonly asked questions
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 -mt-8">
+            <div class="max-w-4xl mx-auto mt-16 mb-32">
+                <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-info-circle"></i>
+                                <span>What is Salvium Protocol?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Salvium Protocol is a decentralized finance (DeFi) platform that aims to provide private, secure, and efficient financial services. It combines cutting-edge privacy technology with DeFi functionality to create a comprehensive ecosystem for users who value their privacy and security.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-lock"></i>
+                                <span>How does Salvium ensure privacy?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Salvium Protocol utilizes advanced cryptographic techniques and zero-knowledge proofs to ensure transaction privacy. Every transaction on the platform is encrypted and untraceable, while still maintaining the ability to verify its validity. This approach provides users with complete financial privacy without compromising on security or compliance.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-coins"></i>
+                                <span>What are SAL tokens used for?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            SAL tokens are the native utility tokens of the Salvium Protocol ecosystem. They serve multiple purposes: governance voting, staking rewards, accessing premium features, and facilitating private transactions within the network. Token holders can actively participate in protocol decisions and earn rewards for contributing to the network's security and growth.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Where can I trade SAL tokens?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            SAL tokens are currently available for trading on several reputable exchanges, including Seven Seas, TradeOgre, XeggeX, nonkyc, and CoinEx. We continuously work to expand our exchange listings to provide better accessibility for our users. Visit our Exchanges page for direct links to trading pairs and detailed instructions.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Is Salvium Protocol secure?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, security is a top priority for Salvium Protocol. We employ multiple layers of security measures, including advanced encryption, secure key management, and regular security audits. Our protocol undergoes continuous monitoring and updates to maintain the highest security standards while ensuring user privacy.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-users"></i>
+                                <span>How can I participate in the Salvium ecosystem?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            There are multiple ways to participate in the Salvium ecosystem: hold SAL tokens for governance rights, provide liquidity to earn rewards, participate in protocol decisions through voting, or simply use our privacy-focused DeFi services. Join our community channels to stay updated on the latest opportunities and developments.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-network-wired"></i>
+                                <span>What makes Salvium different from other DeFi protocols?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Salvium Protocol stands out through its unique combination of privacy-first design, advanced security features, and comprehensive DeFi functionality. Unlike traditional DeFi platforms where transactions are publicly visible, Salvium ensures complete transaction privacy while maintaining the benefits of decentralized finance.
+                        </div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <div class="faq-question-text">
+                                <i class="fas fa-wallet"></i>
+                                <span>Which wallets are compatible with Salvium?</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Salvium Protocol is compatible with several secure wallet solutions. We recommend using our official Salvium Wallet for the best experience and full access to privacy features. The wallet is available for download on our website and includes regular security updates and feature enhancements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden bg-[#0B272C] mt-4">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="./images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </button>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/faq.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const card = question.closest('.faq-card');
+                card.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

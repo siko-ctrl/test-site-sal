@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvium 0.5.0 Launch Including Desktop GUI Wallet | Salvium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/design-system.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .blog-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 30, 0.5);
+        }
+
+        .blog-title-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-title-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-content h2, .blog-content h3, .blog-content h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-content a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--color-primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                height: 40vh;
+            }
+
+            .blog-title-container h1 {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Blog Header -->
+    <header class="blog-header" style="background-image: url('../images/newimages/Blog Page/Blog Thumbs - No Text/Blog - No Text.jpg');">
+        <div class="blog-title-container">
+            <h1>Salvium 0.5.0 Launch Including Desktop GUI Wallet</h1>
+            <div class="blog-meta">
+                <span>January 3, 2024</span>
+                <span>4 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="blog-content">
+        <p>We're thrilled to announce the launch of the Salvium 0.5.0 including Desktop GUI Wallet, now available for download from <a href="../download.html">download page</a>. This marks a significant milestone in our mission to provide a secure, private, and feature-rich cryptocurrency experience. Built on the robust foundation of the Monero GUI wallet, the Salvium Desktop Wallet inherits the strong privacy features and user-friendly interface that crypto enthusiasts have come to trust. We extend our gratitude to the Monero community for their groundbreaking work in privacy-focused cryptocurrencies.</p>
+
+        <h3>Key GUI Features:</h3>
+        <ul>
+            <li><strong>Multi-Platform Support:</strong> Available for Linux and Windows, ensuring accessibility for users across different operating systems.</li>
+            <li><strong>Staking Functionality:</strong> Unique to Salvium, users can now stake their SAL tokens directly from the wallet to earn yield, adding a new dimension to asset management.</li>
+            <li><strong>Comprehensive Wallet Management:</strong> Create new wallets or access existing ones using keys or seed phrases, providing flexibility and security.</li>
+            <li><strong>Private Transactions:</strong> Leverage Salvium's privacy-centric architecture for confidential financial operations.</li>
+            <li><strong>User-Friendly Interface:</strong> Intuitive design makes navigation and use straightforward for both newcomers and experienced users.</li>
+        </ul>
+
+        <p>See the knowledge base: <a href="../knowledge-base.html">Salvium GUI Wallet Guide</a></p>
+
+        <p>The Salvium Desktop Wallet empowers users to:</p>
+        <ul>
+            <li>Send and receive SAL tokens securely</li>
+            <li>Monitor transaction history and balance</li>
+            <li>Manage multiple wallets</li>
+            <li>Stake SAL tokens for yield generation</li>
+            <li>Ensure privacy with integrated features</li>
+        </ul>
+
+        <h3>0.5.0 Upgrades</h3>
+        <ul>
+            <li>Added checkpoints for the blockchain to speed up syncing</li>
+            <li>Fixed setting of refresh-height for new wallets</li>
+            <li>Changed default RPC settings to prevent "no connection to daemon" errors when using RPC</li>
+            <li>Disabled stack trace dumping in release builds to prevent "bad_weak_ptr" crashes on Linux</li>
+            <li>"Moneropulse" messages removed</li>
+            <li>Staking disabled in both CLI + GUI for subaddresses</li>
+            <li>Disabled Trezor functionality until protobuf version issues are resolved</li>
+            <li>Fixed some output messages that were still showing as "Monero"</li>
+        </ul>
+
+        <p>Whether you're new to Salvium or an existing supporter, the desktop wallet provides a comprehensive tool for managing your SAL tokens. It combines the proven security model of Monero with Salvium's innovative staking capabilities, offering a unique blend of privacy, security, and yield generation.</p>
+
+        <p><a href="../download.html">Download the Salvium Desktop Wallet today</a> and take control of your digital assets with confidence. Visit salvium.io/downloads to get started.</p>
+
+        <p>Join us in this exciting new chapter of private, stake-able cryptocurrency management. Your feedback is valuable as we continue to enhance and expand the Salvium ecosystem. Stay tuned for more updates, and happy staking!</p>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+    </script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/blog-navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+.cache/
+_site/
+.jekyll-cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Generated files
+.sass-cache/
+.netlify/
+.vercel/
+
+# Local development
+*.local
+.local/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

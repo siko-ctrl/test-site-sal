@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V0.6 Difficulty Algorithm | Salvium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        
+        .blog-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 30, 0.5);
+        }
+
+        .blog-title-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-title-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-content h2, .blog-content h3, .blog-content h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .blog-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-content a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: var(--color-primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                height: 40vh;
+            }
+
+            .blog-title-container h1 {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Blog Content -->
+    <div class="blog-container">
+        <!-- Main Content -->
+        <div class="blog-content">
+            <!-- Blog Header -->
+            <header class="blog-header" style="background-image: url('../images/newimages/Blog Page/Blog Thumbs - No Text/Blog - No Text.jpg');">
+                <div class="blog-title-container" data-aos="fade-up">
+                    <h1>V0.6 Difficulty Algorithm</h1>
+                    <div class="blog-meta">
+                        <span>January 1, 2024</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </header>
+
+            <p>We're excited to announce a significant improvement to Salvium's mining ecosystem with the implementation of our new difficulty adjustment algorithm in version 0.6. This update addresses key challenges in network stability and mining efficiency.</p>
+
+            <h3>The Importance of Difficulty Adjustment</h3>
+            <p>A well-functioning difficulty adjustment algorithm is crucial for:</p>
+            <ul>
+                <li>Maintaining consistent block times</li>
+                <li>Preventing timestamp manipulation</li>
+                <li>Ensuring network stability</li>
+                <li>Protecting against hash rate fluctuations</li>
+            </ul>
+
+            <h3>Key Improvements in v0.6</h3>
+            <p>The new algorithm introduces several key improvements:</p>
+            <ul>
+                <li>More responsive difficulty adjustments</li>
+                <li>Better handling of hash rate variations</li>
+                <li>Enhanced protection against time warp attacks</li>
+                <li>Improved block time consistency</li>
+            </ul>
+
+            <h3>Technical Implementation</h3>
+            <p>The new algorithm features:</p>
+            <ul>
+                <li>Rolling window difficulty calculation</li>
+                <li>Weighted average block time analysis</li>
+                <li>Dynamic adjustment thresholds</li>
+                <li>Enhanced timestamp validation</li>
+            </ul>
+
+            <h3>Benefits for Users</h3>
+            <p>These improvements provide several benefits:</p>
+            <ul>
+                <li>More predictable transaction times</li>
+                <li>Increased network stability</li>
+                <li>Better mining experience</li>
+                <li>Enhanced security against attacks</li>
+            </ul>
+
+            <h3>Implementation Timeline</h3>
+            <p>The rollout plan includes:</p>
+            <ol>
+                <li>Initial testnet deployment</li>
+                <li>Community feedback period</li>
+                <li>Final adjustments based on testing</li>
+                <li>Mainnet implementation</li>
+            </ol>
+
+            <h3>Future Developments</h3>
+            <p>Looking ahead, we plan to:</p>
+            <ul>
+                <li>Continue monitoring algorithm performance</li>
+                <li>Implement additional optimizations</li>
+                <li>Gather and analyze network metrics</li>
+                <li>Make further adjustments as needed</li>
+            </ul>
+
+            <p>The v0.6 series represents a significant step forward in Salvium's technical evolution. These improvements to the difficulty adjustment algorithm will help ensure a more stable and secure network for all users. We encourage the community to participate in testing and provide feedback as we continue to enhance the Salvium protocol.</p>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="blog-sidebar">
+            <h3 class="text-xl font-semibold mb-4 text-white">Categories</h3>
+            <nav>
+                <a href="new-market-dawn.html" class="category-link">Market Analysis</a>
+                <a href="privacy-evolution.html" class="category-link">Privacy</a>
+                <a href="v06-difficulty-algorithm.html" class="category-link active">Technology</a>
+                <a href="protocol-tx-innovation.html" class="category-link">Protocol</a>
+                <a href="protocol-audit.html" class="category-link">Security</a>
+                <a href="treasury-update.html" class="category-link">Treasury</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

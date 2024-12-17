@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Audit | Salvium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be injected here -->
+    <div id="header"></div>
+
+    <!-- Blog Content -->
+    <div class="blog-container">
+        <!-- Main Content -->
+        <div class="blog-content">
+            <!-- Blog Header -->
+            <header class="blog-header" style="background-image: url('../images/newimages/Blog Page/Blog Thumbs - No Text/Blog - No Text.jpg');">
+                <div class="blog-title-container" data-aos="fade-up">
+                    <h1>Salvium Protocol Audit - A Milestone in Innovation and Security</h1>
+                    <div class="blog-meta">
+                        <span>January 4, 2024</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </header>
+
+            <p>We are excited to announce the successful completion of a comprehensive audit of the Salvium protocol by Cypher Stack, a team of experts with experience in Monero protocol research and development. This audit represents a significant milestone in Salvium's development, providing robust validation of our core innovations and setting the stage for our next phase of growth.</p>
+
+            <h3>Scope of the Audit</h3>
+            <p>Cypher Stack conducted an in-depth review of two key Salvium innovations:</p>
+            <ol>
+                <li>Return Functionality: Our approach to enabling compliant refunds while maintaining privacy.</li>
+                <li>Expanded Transaction Types: Including burn, convert, yield, and protocol transactions that go beyond simple transfers.</li>
+            </ol>
+            <p>The audit involved a thorough examination of the mathematical foundations, logical structure, and security implications of these features. Note that the scope of the audit by Cypher Stack did not include any consideration of legal appropriateness or status of the design, only the technical applicability and functionality.</p>
+
+            <h3>Key Findings</h3>
+            <p>We are pleased to report that Cypher Stack's analysis did not identify any critical issues with the overall approach adopted by Salvium, although they did identify important findings relating to consensus rules and wallet behaviour that require careful consideration. Specifically, they found:</p>
+            <ol>
+                <li>Return Functionality: The auditors confirmed that our design "meets the informal design requirements" and successfully achieves its goals. They verified that the protocol allows for refunds while preserving transaction privacy and unlinkability to similar levels as those found in Monero.</li>
+                <li>Expanded Transaction Types: Cypher Stack validated that our approach "appears to meet its goals" of enabling more complex financial operations within the privacy-preserving framework (whilst bearing in mind the aforementioned important findings).</li>
+                <li>Security Model: The auditors noted that our protocol extensions maintain the strong security properties inherited from Monero, while adding new capabilities.</li>
+            </ol>
+
+            <h3>Recommendations and Optimisations</h3>
+            <p>Cypher Stack provided valuable insights for further enhancing Salvium:</p>
+            <ol>
+                <li>Efficiency Improvements: They suggested a simplified construction for additional data in convert/yield transactions, which we plan to implement in our next update.</li>
+                <li>Risk Mitigation: The audit highlighted potential risks related to output key reuse across different transaction types. We will be implementing additional safeguards as recommended.</li>
+                <li>Subaddress Handling: Cypher Stack proposed optimisations for subaddress management, which will improve performance in future releases.</li>
+            </ol>
+
+            <h3>Next Steps</h3>
+            <p>We are already working on incorporating Cypher Stack's recommendations:</p>
+            <ol>
+                <li>Protocol Considerations: Our development team is reviewing the suggested efficiency improvements and risk mitigations for potential inclusion in future updates.</li>
+                <li>Extended Testing: We will be conducting extensive testing of the optimised protocol to ensure seamless integration of the new features.</li>
+                <li>Documentation: We're enhancing our technical documentation to reflect the audited protocol design and upcoming changes.</li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>This audit by Cypher Stack marks a crucial step in Salvium's journey. It provides strong validation of our innovative approach to privacy-preserving, compliant blockchain technology. While there is always more work to be done in the evolving landscape of cryptocurrency, we are confident that Salvium is on the right path.</p>
+            
+            <p>We extend our sincere thanks to the Cypher Stack team for their rigorous analysis and constructive feedback. Their expertise has been invaluable in refining and strengthening the Salvium protocol.</p>
+            
+            <p>We encourage our community to review the full audit report, which we've made publicly available in the spirit of transparency. As always, we welcome your questions, feedback, and continued support as we work together to build the future of private, compliant blockchain technology.</p>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="blog-sidebar">
+            <h3 class="text-xl font-semibold mb-4 text-white">Categories</h3>
+            <nav>
+                <a href="new-market-dawn.html" class="category-link">Market Analysis</a>
+                <a href="privacy-evolution.html" class="category-link">Privacy</a>
+                <a href="v06-difficulty-algorithm.html" class="category-link">Technology</a>
+                <a href="protocol-tx-innovation.html" class="category-link">Protocol</a>
+                <a href="protocol-audit.html" class="category-link active">Security</a>
+                <a href="treasury-update.html" class="category-link">Treasury</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>
