@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvium Protocol - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/cards.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-scrolled {
+            background: linear-gradient(to bottom, rgb(11 39 44 / 40%), rgb(11 39 44 / 80%));
+        }
+
+        .blog-card {
+            background: linear-gradient(to bottom, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.98));
+            border: 1px solid rgba(0, 191, 165, 0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 191, 165, 0.1);
+            border-color: rgba(0, 191, 165, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-tag {
+            background: rgba(0, 191, 165, 0.1);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-link {
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-primary);
+            font-weight: 500;
+        }
+
+        .blog-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-link:hover i {
+            transform: translateY(2px);
+        }
+
+        .blog-card .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-description {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            color: rgba(224, 224, 224, 0.8);
+        }
+
+        .btn {
+            border-radius: var(--radius-md);
+        }
+
+        /* Global title styles */
+        h1, h2, h3, .title-font {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .section-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Blog grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header -->
+    <div id="header" class="container mx-auto px-4 py-6"></div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative bg-[#1e1e1e] overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="images/newimages/Page Headers/Blog Header.jpg" alt="Blog Header" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            </div>
+            <div class="relative z-10 py-24 lg:py-32">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                            Salvium <span class="gradient-text">Blog</span>
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8">
+                            Latest news and updates from the Salvium team
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 -mt-8">
+            <div class="blog-grid mt-16">
+                <!-- Blog Card 1 -->
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="New Blog Images/Blog Protocol TX.jpg" alt="Protocol TX Innovation" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Technology</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        <p class="blog-description mb-4">Discover how Salvium's Protocol_tx is revolutionizing blockchain technology with innovative transaction processing and enhanced privacy features.</p>
+                        <a href="blog/protocol-tx.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="New Blog Images/Blog Crypto landscape.jpg" alt="Redefining Cryptocurrency" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Innovation</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Redefining the Cryptocurrency Landscape</h2>
+                        <p class="blog-description mb-4">Explore how Salvium is reshaping the future of cryptocurrency with its innovative approach to privacy and security.</p>
+                        <a href="blog/redefining-crypto.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="New Blog Images/blog 0.5.0 rls.jpg" alt="Desktop GUI Wallet" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Release</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Salvium 0.5.0 Launch Including Desktop GUI Wallet</h2>
+                        <p class="blog-description mb-4">Announcing the release of Salvium 0.5.0, featuring our new desktop GUI wallet for enhanced user experience.</p>
+                        <a href="blog/gui-wallet.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="New Blog Images/Blog Audit.jpg" alt="Protocol Audit" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Security</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Salvium Protocol Audit</h2>
+                        <p class="blog-description mb-4">A comprehensive look at Salvium's protocol audit results and our commitment to security.</p>
+                        <a href="blog/audit.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="New Blog Images/Blog Aug Tres.jpg" alt="Treasury Update" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Update</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Treasury Update</h2>
+                        <p class="blog-description mb-4">Latest updates on Salvium's treasury management and fund allocation strategy.</p>
+                        <a href="blog/treasury.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="New Blog Images/Blog AMA PP.jpg" alt="Privacy AMA" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Community</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Pursuit of Privacy AMA</h2>
+                        <p class="blog-description mb-4">Transcript from our latest AMA session focusing on privacy in cryptocurrency.</p>
+                        <a href="blog/privacy-ama.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 7 -->
+                <div class="blog-card" data-aos="fade-up">
+                    <img src="New Blog Images/Blog New Dawning.jpg" alt="New Market Dawn" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Market</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">The Dawn of a New Market</h2>
+                        <p class="blog-description mb-4">Exploring the emerging market opportunities and Salvium's position in the evolving crypto landscape.</p>
+                        <a href="blog/new-market.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 8 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="New Blog Images/Blog The Evo or Privacy.jpg" alt="Privacy Evolution" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Privacy</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">The Evolution of Privacy in Cryptocurrency</h2>
+                        <p class="blog-description mb-4">A deep dive into how privacy in cryptocurrency has evolved and Salvium's role in its future.</p>
+                        <a href="blog/privacy-evolution.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 9 -->
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="New Blog Images/Blog Difficulty Algo.jpg" alt="v0.6 Algorithm" class="blog-image">
+                    <div class="p-6">
+                        <span class="blog-tag">Technical</span>
+                        <h2 class="card-title text-xl mt-4 mb-2 text-white">Understanding Salvium's v0.6 Series</h2>
+                        <p class="blog-description mb-4">Technical insights into Salvium's v0.6 series and its improved difficulty algorithm.</p>
+                        <a href="blog/v06-algorithm.html" class="blog-link">
+                            Read More
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-4">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0">
+                <img src="./images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                    Ready to Take the <span class="gradient-text">Pill</span>?
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your journey with Salvium today and be part of the next generation of Private DeFi.
+                </p>
+                <button class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200">
+                    Get Started Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/particles.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>
